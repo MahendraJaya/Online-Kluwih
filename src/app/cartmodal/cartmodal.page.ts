@@ -11,7 +11,7 @@ export class CartmodalPage implements OnInit {
 
   constructor(private kluservice:KluwihserviceService, private modalCtrl:ModalController) { }
   cart:any[] = []
-
+  c = ""
   ngOnInit() {
     this.cart = this.kluservice.getCart();
   }
