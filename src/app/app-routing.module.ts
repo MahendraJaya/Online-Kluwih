@@ -11,6 +11,22 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'detailtoko/:index',
+    loadChildren: () => import('./detailtoko/detailtoko.module').then( m => m.DetailtokoPageModule)
+  },
+  {
+    path: 'cartmodal',
+    loadChildren: () => import('./cartmodal/cartmodal.module').then( m => m.CartmodalPageModule)
+  },
 ];
 
 @NgModule({

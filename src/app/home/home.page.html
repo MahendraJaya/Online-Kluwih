@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,20 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Home</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-list>
+    <ion-card *ngFor="let tokos of toko" routerLink="/detailtoko/{{tokos.id}}">
+      <img alt="Silhouette of mountains" src="{{tokos.url_gambar}}" width="100%" height="100%"  />
+      <ion-card-header>
+        <ion-card-title>{{tokos.nama}}</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <span>Ini Toko</span>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>

@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor() {}
+  id_pembeli = ""
+  nama_pembeli = ""
 }
