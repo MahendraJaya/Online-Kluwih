@@ -12,12 +12,44 @@
       <ion-title size="large">Home</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openCart()" #cart>
+      <div class="cart-length">{{ cartItemCount | async }}</div>
+      <ion-icon name="cart" class="cart-icon"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <h2></h2>
+  <h2>Bookmark</h2>
+  
+    
+    <div *ngFor="let item of id_produk_fav">
+      <div *ngFor="let item2 of toko ; let i = index">
+          <p *ngIf="item == item2.id">
+            <ion-card (click)="addToCart(i)">
+              <img alt="Silhouette of mountains" src="{{item2.url_gambar}}" width="50%" height="200px"  />
+              <ion-card-header>
+                <ion-card-title>{{item2.nama}}</ion-card-title>
+                <ion-card-subtitle>Rp. {{item2.harga}}</ion-card-subtitle>
+              </ion-card-header>
+            
+              <ion-card-content>
+                <span>Ini Toko Favorite</span>
+              </ion-card-content>
+            </ion-card>
+          </p>
+      </div>
+    </div>
+
+
+  <h2>Reccomendation</h2>
+
 
   <ion-list>
-    <ion-card *ngFor="let tokos of toko" routerLink="/detailtoko/{{tokos.id}}">
-      <img alt="Silhouette of mountains" src="{{tokos.url_gambar}}" width="100%" height="100%"  />
+    <ion-card *ngFor="let tokos of toko; let i = index" (click)="addToCart(i)">
+      <img alt="Silhouette of mountains" src="{{tokos.url_gambar}}" width="50%" height="200px"  />
       <ion-card-header>
         <ion-card-title>{{tokos.nama}}</ion-card-title>
+        <ion-card-subtitle>Rp. {{tokos.harga}}</ion-card-subtitle>
       </ion-card-header>
     
       <ion-card-content>
@@ -25,4 +57,7 @@
       </ion-card-content>
     </ion-card>
   </ion-list>
+  <ion-button (click)="logout()" expand="block" fill="clear" shape="round">
+    Logout
+  </ion-button>
 </ion-content>

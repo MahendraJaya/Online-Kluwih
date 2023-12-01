@@ -46,15 +46,15 @@ export class KluwihserviceService {
     );
   }
 
-  dataTokopenjual() : Observable<any>{
+  dataProduk() : Observable<any>{
     return this.http.get(
-      'https://ubaya.me/hybrid/160421043/sew_gettoko.php'
+      'https://ubaya.me/hybrid/160421043/sew_getproduk.php'
     );
   }
 
-  dataProdukpenjual(id:number) : Observable<any>{
+  dataFavorite(id:number) : Observable<any>{
     return this.http.get(
-      'https://ubaya.me/hybrid/160421043/sew_detailtoko.php?id=' + id
+      'https://ubaya.me/hybrid/160421043/sew_getfavorite.php?id_pembeli=' + id
     );
   }
 

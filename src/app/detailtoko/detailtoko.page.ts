@@ -16,16 +16,13 @@ export class DetailtokoPage implements OnInit {
   constructor(private kluservice:KluwihserviceService, private route: ActivatedRoute, private modalCtrl:ModalController) { }
   produk: any[] = [];
   cart:any [] = [];
+  coba_num = ""
 
   index = 0;
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.index = params['index'];
     });
-  
-    this.kluservice.dataProdukpenjual(this.index).subscribe((response) =>{
-      this.produk = response
-    })
 
     this.cart = this.kluservice.getCart();
     this.cartItemCount = this.kluservice.getCartITemCount();
@@ -41,7 +38,6 @@ export class DetailtokoPage implements OnInit {
   }
 
   addToCart(ids:number) {
-    this.kluservice.addProduk(this.produk[ids]);
-    
+    this.kluservice.addProduk(this.produk[ids]);  
   }
 }
