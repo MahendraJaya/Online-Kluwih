@@ -5,6 +5,7 @@ import { KluwihserviceService } from '../kluwihservice.service';
 import { BehaviorSubject } from 'rxjs';
 import { ModalController } from '@ionic/angular';
 import { CartmodalPage } from '../cartmodal/cartmodal.page';
+import { OpsimodalPage } from '../opsimodal/opsimodal.page';
 
 @Component({
   selector: 'app-home',
@@ -40,13 +41,24 @@ export class HomePage{
   }
 
   async openCart() {
-
     let modal = await this.modalCtrl.create({
       component: CartmodalPage,
       cssClass: 'cart-modal'
     });
+    
     modal.present();
   }
+
+  async openOpsi(ids:number){
+    let modal = await this.modalCtrl.create({
+      component: OpsimodalPage,
+      cssClass: 'opsi-modal',
+      componentProps : {
+        id_produk:ids
+      }
+    });
+    modal.present();
+  }  
 
   addToCart(ids:number) {
     this.kluservice.addProduk(this.toko[ids]);

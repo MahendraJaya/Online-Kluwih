@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'cartmodal',
     loadChildren: () => import('./cartmodal/cartmodal.module').then( m => m.CartmodalPageModule)
   },
+  {
+    path: 'opsimodal',
+    loadChildren: () => import('./opsimodal/opsimodal.module').then( m => m.OpsimodalPageModule)
+  },
 ];
 
 @NgModule({

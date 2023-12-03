@@ -19,6 +19,7 @@
     </ion-fab-button>
   </ion-fab>
   <h2></h2>
+  
   <h2>Bookmark</h2>
   
     
@@ -45,7 +46,7 @@
 
 
   <ion-list>
-    <ion-card *ngFor="let tokos of toko; let i = index" (click)="addToCart(i)">
+    <ion-card *ngFor="let tokos of toko; let i = index">
       <img alt="Silhouette of mountains" src="{{tokos.url_gambar}}" width="50%" height="200px"  />
       <ion-card-header>
         <ion-card-title>{{tokos.nama}}</ion-card-title>
@@ -54,10 +55,14 @@
     
       <ion-card-content>
         <span>Ini Toko</span>
+        <ion-button (click)="openOpsi(i)" shape="round">
+          Click me
+        </ion-button>
       </ion-card-content>
     </ion-card>
   </ion-list>
   <ion-button (click)="logout()" expand="block" fill="clear" shape="round">
     Logout
   </ion-button>
+  
 </ion-content>

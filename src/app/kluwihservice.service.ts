@@ -58,6 +58,12 @@ export class KluwihserviceService {
     );
   }
 
+  dataOpsi(id:number) : Observable<any>{
+    return this.http.get(
+      'https://ubaya.me/hybrid/160421043/sew_getopsi.php?id_produk=' + id
+    );
+  }
+
   getCartITemCount(){
     return this.cartItemCount;
   }
