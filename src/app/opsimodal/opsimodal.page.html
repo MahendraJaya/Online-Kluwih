@@ -11,28 +11,29 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    <ion-list *ngFor="let key of keys">
-      <ion-item>
-        <ion-label>{{ key }}</ion-label>
-        <ion-checkbox
-          *ngFor="let option of data_opsi[key]"
-          [checked]="selectedOptions[key][option]"
-          (ionChange)="onCheckboxChange(key, option)"
-        >
-          {{ option }}
-        </ion-checkbox>
-      </ion-item>
-    </ion-list>
+    <div class="container">
+      <ion-list *ngFor="let key of keys">
+        <p>{{key}}</p>
+        <ion-item *ngFor="let option of data_opsi[key]">
+          <div>
+            <ion-checkbox
+              justify="space-between"
+              [checked]="selectedOptions[key][option]"
+              (ionChange)="onCheckboxChange(key, option)"
+            >
+              {{ option }}
+            </ion-checkbox>
+          </div>
+          <br />
+        </ion-item>
+      </ion-list>
+      <ion-button
+        (click)="getSelectedValues()"
+        expand="block"
+        shape="round"
+      >
+        Tambahkan Keranjang
+      </ion-button>
+    </div>
   </ion-content>
-  <div *ngFor="let item of opsi_result">
-    <p>{{item}}</p>
-  </div>
-  <ion-button
-    (click)="getSelectedValues()"
-    expand="block"
-    fill="clear"
-    shape="round"
-  >
-    Click me
-  </ion-button>
 </ion-content>

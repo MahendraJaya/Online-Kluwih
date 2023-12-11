@@ -1,3 +1,7 @@
+.container-item{
+  margin: 15px;
+}
+
 #container {
   text-align: center;
 
@@ -44,4 +48,16 @@ ion-fab-button {
   font-size: 1em;
   min-width: 25px;
   z-index: 10;
+}
+
+.judul{
+  text-align: center;
+  margin: 30px 0px 50px 0px;
+}
+
+.border-card {
+  border: groove; /* Change the color and width according to your preference */
+  border-radius: 10px; /* Adjust the border radius as needed */
+  margin-bottom: 10px; /* Optional: Add margin for spacing between cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow for a subtle lift effect */
 }

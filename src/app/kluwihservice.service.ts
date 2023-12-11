@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class KluwihserviceService {
 
   cart:any [] = [];
-  produk:any[] = [];
+  produk:any   = [];
   private cartItemCount = new BehaviorSubject(0);
   constructor(private http: HttpClient) {}
 
@@ -26,6 +26,39 @@ export class KluwihserviceService {
     const urlEncodedData = body.toString();
     return this.http.post(
       'https://ubaya.me/hybrid/160421043/sew_register.php',
+      urlEncodedData,
+      { headers }
+    );
+  }
+
+  inputPesanan(harga_pesanan:number, id_pembeli:number, id_pembayaran:number) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+    });
+    const body = new URLSearchParams();
+    body.set('harga_pesanan', harga_pesanan.toString());
+    body.set('id_pembeli', id_pembeli.toString());
+    body.set('id_pembayaran', id_pembayaran.toString());
+    const urlEncodedData = body.toString();
+    return this.http.post(
+      'https://ubaya.me/hybrid/160421043/sew_inputpesanan.php',
+      urlEncodedData,
+      { headers }
+    );
+  }
+
+  inputDetailpesanan(id_produk:number, id_pesanan:number, jumlah:number, keterangan:string) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+    });
+    const body = new URLSearchParams();
+    body.set('id_produk', id_produk.toString());
+    body.set('id_pesanan', id_pesanan.toString());
+    body.set('jumlah', jumlah.toString());
+    body.set('keterangan', keterangan);
+    const urlEncodedData = body.toString();
+    return this.http.post(
+      'https://ubaya.me/hybrid/160421043/sew_inputdetailpesanan.php',
       urlEncodedData,
       { headers }
     );
@@ -84,6 +117,7 @@ export class KluwihserviceService {
     if (!added) {
       product.amount = 1;
       this.cart.push(product);
+      
     }
     this.cartItemCount.next(this.cartItemCount.value + 1);
   }

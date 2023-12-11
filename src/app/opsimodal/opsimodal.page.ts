@@ -13,6 +13,8 @@ export class OpsimodalPage implements OnInit {
     private modalCtrl: ModalController
   ) {}
   id_produk = 0;
+  tmp_opsi = '';
+  data_produk: any = []
   data_opsi: { [key: string]: string[] } = {};
   keys: string[] = [];
   selectedOptions: { [key: string]: { [option: string]: boolean } } = {};
@@ -61,9 +63,17 @@ export class OpsimodalPage implements OnInit {
       Object.keys(this.selectedOptions[key]).forEach((option) => {
         if (this.selectedOptions[key][option]) {
           result.push(option);
+          this.tmp_opsi = this.tmp_opsi + option + ', ';
         }
       });
     });
     this.opsi_result = result;
+    this.data_produk['opsi'] = this.tmp_opsi
+    this.kluservice.addProduk(this.data_produk)
+    this.close();
+  }
+
+  close() {
+    this.modalCtrl.dismiss();
   }
 }

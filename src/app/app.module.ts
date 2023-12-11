@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { CartmodalPage } from './cartmodal/cartmodal.page';
 import { CartmodalPageModule } from './cartmodal/cartmodal.module';
 
 @NgModule({

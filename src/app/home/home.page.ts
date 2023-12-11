@@ -49,12 +49,13 @@ export class HomePage{
     modal.present();
   }
 
-  async openOpsi(ids:number){
+  async openOpsi(ids:number, produk:any []){
     let modal = await this.modalCtrl.create({
       component: OpsimodalPage,
       cssClass: 'opsi-modal',
       componentProps : {
-        id_produk:ids
+        id_produk:ids,
+        data_produk: produk
       }
     });
     modal.present();
