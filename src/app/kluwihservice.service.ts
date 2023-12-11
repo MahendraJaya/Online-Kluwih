@@ -31,7 +31,7 @@ export class KluwihserviceService {
     );
   }
 
-  inputPesanan(harga_pesanan:number, id_pembeli:number, id_pembayaran:number) {
+  inputPesanan(harga_pesanan:number, id_pembeli:number, id_pembayaran:number, waktu_pengambilan:string) {
     const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
     });
@@ -39,6 +39,7 @@ export class KluwihserviceService {
     body.set('harga_pesanan', harga_pesanan.toString());
     body.set('id_pembeli', id_pembeli.toString());
     body.set('id_pembayaran', id_pembayaran.toString());
+    body.set('waktu_pengambilan', waktu_pengambilan)
     const urlEncodedData = body.toString();
     return this.http.post(
       'https://ubaya.me/hybrid/160421043/sew_inputpesanan.php',

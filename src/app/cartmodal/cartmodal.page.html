@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Checkout</ion-title>
+    <ion-title>Keranjang Anda</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -34,10 +34,40 @@
           </ion-col>
         </ion-row>
       </ion-card-content>
-      
     </ion-card>
+    <!-- <div class="container-time">
+      <span slot="title">Pilih waktu pengambilan</span>
+      <ion-datetime presentation="time" size="cover" [(ngModel)]="tgl">
+      </ion-datetime>
+    </div> -->
+
+    <div class="container-time">
+      <ion-item>
+        <ion-label
+          ><ion-icon name="time-outline"></ion-icon> Waktu
+          Pengambilan...</ion-label
+        >
+        <ion-input
+          value="{{ date | date: 'HH.mm' }}"
+          id="date"
+          class="ion-text-end"
+        ></ion-input>
+        <ion-popover trigger="date" size="cover">
+          <ng-template>
+            <ion-datetime presentation="time" size="cover" [(ngModel)]="date">
+            </ion-datetime>
+          </ng-template>
+        </ion-popover>
+      </ion-item>
+    </div>
+    <!-- <p>
+      {{formated_tgl}}
+    </p>
+    <ion-button (click)="formatTgl()" expand="block" fill="clear" shape="round">
+      Click me
+    </ion-button> -->
     <ion-button (click)="checkout()" expand="block" shape="round">
-      Checkout
+      Bayar
     </ion-button>
   </ion-list>
 </ion-content>
