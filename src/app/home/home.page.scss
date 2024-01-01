@@ -1,5 +1,55 @@
-.container-item {
+.container-menu, .container-home {
   margin: 15px;
+}
+
+.container-home{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nama-home{
+  text-align: center;
+}
+
+.pesanan-home{
+  background-color: #F7F2FA;
+  border-radius: 10px;
+  width: 80%;
+  height: 200px;
+  clear: both;
+  text-align: left;
+  font-size: 1.625rem;
+  color: black;
+}
+
+.pesanan-home button{
+  background-color: #E8DEF8;
+  width: 100%;
+  height: 70px;
+  border-radius: 35px;
+  text-align: left;
+}
+
+.btn-kluwih{
+  color: black;
+  float: left;
+  margin-left: 2em;
+  font-size: 15px;
+}
+
+.btn-kluwih-toko{
+  color: black;
+  margin-right: 5vh;
+  float: right;
+  font-size: 15px;
+}
+
+
+.pesanan-home-content{
+  margin: 30px;
 }
 
 ion-fab-button {

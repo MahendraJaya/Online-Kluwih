@@ -10,36 +10,67 @@
       <ion-title size="large">Checkout</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div class="ion-text-end">
+  <!-- <div class="ion-text-end">
     <ion-button (click)="close()" fill="clear" color="dark">
       <ion-icon name="close" slot="start"></ion-icon>
     </ion-button>
-  </div>
+  </div> -->
   <ion-list>
-    <ion-card *ngFor="let p of cart">
-      <ion-card-header>
-        <ion-card-title>{{ p.nama }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-row class="ion-align-items-center">
-          <ion-col size="8">
-            <ion-label color="secondary">
-              <b>Rp. {{ p.harga }}</b>
-            </ion-label>
-          </ion-col>
-          <ion-col size="4" class="ion-text-right">
-            <ion-button fill="clear">
-              <ion-icon name="add"></ion-icon>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-card-content>
-    </ion-card>
+  <ion-card *ngFor="let tokos of cart; let i = index" class="border-card">
+    <ion-grid>
+      <ion-row>
+        <!-- Content Column -->
+        <ion-col size="8">
+          <ion-card-header>
+            <ion-card-title><b>{{tokos.nama}}</b></ion-card-title>
+            <ion-card-subtitle>Ini Toko</ion-card-subtitle>
+          </ion-card-header>
+        </ion-col>
+
+        <!-- Image Column -->
+        <ion-col size="4">
+          <img
+            alt="Silhouette of mountains"
+            src="{{tokos.url_gambar}}"
+            width="100%"
+            height="100px"
+          />
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
     <!-- <div class="container-time">
       <span slot="title">Pilih waktu pengambilan</span>
       <ion-datetime presentation="time" size="cover" [(ngModel)]="tgl">
       </ion-datetime>
     </div> -->
+
+    <div class="container-detail">
+      <div class="container-detail-content" *ngFor="let detail of cart">
+        <p>
+          <span style="float: left">{{detail.nama}}</span>
+          <span style="float: right">Rp.{{detail.harga * detail.amount}}</span>
+        </p>
+        <br>
+        <div
+          class="container-detail-opsi"
+          *ngFor="let opsi of detail.opsi.split(',')"
+        >
+          <p *ngIf="opsi != ' '">
+            <span style="float: left">{{opsi}}</span
+            ><span style="float: right">Rp.0</span>
+          </p>
+          <br>
+        </div>
+        <b
+          ><p>
+            <span style="color: black; float: left">Total : </span
+            ><span style="float: right; color: black;">Rp.{{detail.harga * detail.amount}}</span>
+          </p></b
+        >
+        <br>
+      </div>
+    </div>
 
     <div class="container-time">
       <ion-item>
@@ -54,7 +85,12 @@
         ></ion-input>
         <ion-popover trigger="date" size="cover">
           <ng-template>
-            <ion-datetime presentation="time" size="cover" [(ngModel)]="date">
+            <ion-datetime
+              presentation="time"
+              size="cover"
+              [(ngModel)]="date"
+              min="{{min_date}}"
+            >
             </ion-datetime>
           </ng-template>
         </ion-popover>
@@ -66,7 +102,7 @@
     <ion-button (click)="formatTgl()" expand="block" fill="clear" shape="round">
       Click me
     </ion-button> -->
-    <ion-button (click)="checkout()" expand="block" shape="round">
+    <ion-button (click)="checkout()" expand="block" shape="round" class="container-time">
       Bayar
     </ion-button>
   </ion-list>

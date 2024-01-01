@@ -1,3 +1,17 @@
-.container-time{
-    margin: 10px;
+.container-time, .container-detail{
+    margin: 15px;
+}
+p{
+    clear: both;
+}
+
+.border-card {
+    border: groove; /* Change the color and width according to your preference */
+    border-radius: 10px; /* Adjust the border radius as needed */
+    margin-bottom: 10px; /* Optional: Add margin for spacing between cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow for a subtle lift effect */
+  }
+
+.container-detail{
+    color: grey;
 }

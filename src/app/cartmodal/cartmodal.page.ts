@@ -3,7 +3,6 @@ import { KluwihserviceService } from '../kluwihservice.service';
 import { ModalController } from '@ionic/angular';
 import { format, formatISO9075, parseISO } from 'date-fns';
 
-
 @Component({
   selector: 'app-cartmodal',
   templateUrl: './cartmodal.page.html',
@@ -15,8 +14,10 @@ export class CartmodalPage implements OnInit {
     private modalCtrl: ModalController
   ) {}
   cart: any[] = [];
-  formated_tgl = "";
-  date = "";
+  formated_tgl = '';
+  date = '';
+  min_date = new Date().toISOString();
+  
   ngOnInit() {
     this.cart = this.kluservice.getCart();
   }
@@ -25,7 +26,7 @@ export class CartmodalPage implements OnInit {
     this.kluservice.addProduk(product);
   }
 
-  formatTgl(){
+  formatTgl() {
     //this.formated_tgl = formatISO9075(Date.parse(this.date));
     return formatISO9075(Date.parse(this.date));
   }
@@ -36,7 +37,12 @@ export class CartmodalPage implements OnInit {
     this.cart.forEach((data) => {
       totHarga = data.harga * data.amount;
       this.kluservice
-        .inputPesanan(totHarga, Number.parseInt(id_pembeli), 1, this.formatTgl())
+        .inputPesanan(
+          totHarga,
+          Number.parseInt(id_pembeli),
+          1,
+          this.formatTgl()
+        )
         .subscribe((response: any) => {
           if (response.result == '200') {
             this.kluservice
@@ -50,8 +56,8 @@ export class CartmodalPage implements OnInit {
                 if (responses.result == '200') {
                   alert('Yay berhasil :D');
                   this.close();
-                }else{
-                  alert("something wong");
+                } else {
+                  alert('something wong');
                 }
               });
           }

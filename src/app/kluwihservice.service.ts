@@ -92,6 +92,12 @@ export class KluwihserviceService {
     );
   }
 
+  dataPesananpembeli(id:number) : Observable<any>{
+    return this.http.get(
+      'https://ubaya.me/hybrid/160421043/sew_getpesananpembeli.php?id_pembeli=' + id
+    );
+  }
+
   dataOpsi(id:number) : Observable<any>{
     return this.http.get(
       'https://ubaya.me/hybrid/160421043/sew_getopsi.php?id_produk=' + id

@@ -7,13 +7,18 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-fab vertical="bottom" horizontal="center" slot="fixed" *ngIf="cart.length > 0">
+  <ion-fab
+    vertical="bottom"
+    horizontal="center"
+    slot="fixed"
+    *ngIf="cart.length > 0"
+  >
     <ion-fab-button (click)="openCart()" #cart>
       <!-- <div class="cart-length">{{ cartItemCount | async }}</div> -->
       <ion-icon name="cart" class="cart-icon"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-  <div class="container-item">
+  <div class="container-menu" *ngIf="page_sekarang == 'menu'">
     <h1 class="judul">Kantin Kluwih</h1>
 
     <h2></h2>
@@ -90,5 +95,31 @@
     <ion-button (click)="logout()" expand="block" fill="clear" shape="round">
       Logout
     </ion-button>
+    <ion-button (click)="gantiPage('home')" expand="block" fill="clear" shape="round">
+      Click me
+    </ion-button>
+  </div>
+
+  <div class="container-home" *ngIf="page_sekarang == 'home'">
+    <div class="nama-home">
+      <h1>Hai {{nama_pembeli}}!</h1>
+    </div>
+    <div class="pesanan-home">
+      <div class="pesanan-home-content">
+        <p>Pesan Makanan</p>
+        <button (click)="gantiPage('menu')">
+          <b>
+            <ion-icon
+              name="radio-button-on-outline"
+              style="margin-left: 30px; color: black; float: left;"
+            ></ion-icon>
+            <span class="btn-kluwih">Kantin Kluwih</span>
+            <span class="btn-kluwih-toko" style="float: right;">10 Toko Buka</span>
+          </b>
+        </button>
+      </div>
+    </div>
+    <div class="produk-home">
+    </div>
   </div>
 </ion-content>
