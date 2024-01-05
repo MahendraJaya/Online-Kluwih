@@ -3,7 +3,7 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Home</ion-title>
+      <ion-title size="large"></ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -23,26 +23,28 @@
 
     <h2></h2>
 
-    <h2>You Bookmark</h2>
+    <!-- <h2>You Bookmark</h2>
     <div *ngFor="let item of id_produk_fav">
       <div *ngFor="let item2 of toko ; let i = index">
         <p *ngIf="item == item2.id">
-          <ion-card (click)="addToCart(i)" class="border-card">
+          <ion-card (click)="openOpsi(item.id, toko[i])" class="border-card">
             <ion-grid>
               <ion-row>
-                <!-- Content Column -->
+          
                 <ion-col size="8">
                   <ion-card-header>
-                    <ion-card-title>{{item2.nama}}</ion-card-title>
-                    <ion-card-subtitle>Rp. {{item2.harga}}</ion-card-subtitle>
+             
                   </ion-card-header>
 
                   <ion-card-content>
-                    <span>Ini Toko Favorite</span>
+                    <div style="margin-top: 10px">
+                      <p class="nProduk"><b>{{item.namaProduk}}</b></p>
+                      <p class="nToko">{{item.namaToko}}</p>
+                    </div>
                   </ion-card-content>
                 </ion-col>
 
-                <!-- Image Column -->
+                
                 <ion-col size="4">
                   <img
                     alt="Silhouette of mountains"
@@ -56,26 +58,23 @@
           </ion-card>
         </p>
       </div>
-    </div>
+    </div> -->
 
     <h2>Reccomendation</h2>
 
     <ion-list>
-      <ion-card *ngFor="let tokos of toko; let i = index" class="border-card">
+      <ion-card *ngFor="let tokos of toko; let i = index" class="border-card" (click)="openOpsi(tokos.id, toko[i])">
         <ion-grid>
           <ion-row>
             <!-- Content Column -->
             <ion-col size="8">
-              <ion-card-header>
-                <ion-card-title><b>{{tokos.nama}}</b></ion-card-title>
-                <ion-card-subtitle>Ini Toko</ion-card-subtitle>
-                <ion-card-subtitle>Rp. {{tokos.harga}}</ion-card-subtitle>
-              </ion-card-header>
+              <ion-card-header> </ion-card-header>
 
               <ion-card-content>
-                <ion-button (click)="openOpsi(tokos.id, toko[i])" shape="round">
-                  Tambah
-                </ion-button>
+                <div style="margin-top: 10px">
+                  <p class="nProduk"><b>{{tokos.namaProduk}}</b></p>
+                    <p class="nToko">{{tokos.namaToko}}</p>
+                </div>
               </ion-card-content>
             </ion-col>
 
@@ -85,7 +84,7 @@
                 alt="Silhouette of mountains"
                 src="{{tokos.url_gambar}}"
                 width="100%"
-                height="200px"
+                height="150px"
               />
             </ion-col>
           </ion-row>
@@ -95,14 +94,25 @@
     <ion-button (click)="logout()" expand="block" fill="clear" shape="round">
       Logout
     </ion-button>
-    <ion-button (click)="gantiPage('home')" expand="block" fill="clear" shape="round">
-      Click me
+    <ion-button
+      (click)="gantiPage('home')"
+      expand="block"
+      fill="clear"
+      shape="round"
+    >
+      Home
     </ion-button>
   </div>
 
   <div class="container-home" *ngIf="page_sekarang == 'home'">
     <div class="nama-home">
-      <h1>Hai {{nama_pembeli}}!</h1>
+      <img
+        src="https://img.freepik.com/free-photo/satisfied-handsome-guy-glasses-looking-pleased-upper-right-corner-smiling-delighted_176420-21199.jpg?size=626&ext=jpg&ga=GA1.1.451588137.1697022489&semt=ais"
+        style="border-radius: 100%; margin-right: 10px"
+        width="50px"
+        height="50px"
+      />
+      <h1 style="font-size: 40px">Hai {{nama_pembeli}}!</h1>
     </div>
     <div class="pesanan-home">
       <div class="pesanan-home-content">
@@ -111,15 +121,58 @@
           <b>
             <ion-icon
               name="radio-button-on-outline"
-              style="margin-left: 30px; color: black; float: left;"
+              style="margin-left: 30px; color: black; float: left"
             ></ion-icon>
             <span class="btn-kluwih">Kantin Kluwih</span>
-            <span class="btn-kluwih-toko" style="float: right;">10 Toko Buka</span>
+            <span class="btn-kluwih-toko" style="float: right"
+              >10 Toko Buka</span
+            >
           </b>
         </button>
       </div>
     </div>
-    <div class="produk-home">
+    <p style="font-weight: bold; margin-top: 40px">Pesanan kamu nih...</p>
+    <div class="produk-home" *ngIf="produk_pesanan.length == 0">
+      
+      <div>
+        <img
+          src="assets/bg-pesanan.png"
+          alt="Belom ada pesanan nih !!!"
+          sizes="80%"
+        />
+        <h6>Yah, kamu belum ada pesanan. Yuk pesan!</h6>
+      </div>
+    </div>
+    <div style="width: 81%">
+      <ion-list>
+        <ion-card *ngFor="let tokos of produk_pesanan" class="border-card">
+          <ion-grid>
+            <ion-row>
+              <!-- Content Column -->
+              <ion-col size="8">
+                <ion-card-header> </ion-card-header>
+
+                <ion-card-content>
+                  <div style="margin-top: 10px">
+                    <p class="nProduk"><b>{{tokos.namaProduk}}</b></p>
+                    <p class="nToko">{{tokos.namaToko}}</p>
+                  </div>
+                </ion-card-content>
+              </ion-col>
+
+              <!-- Image Column -->
+              <ion-col size="4">
+                <img
+                  alt="Silhouette of mountains"
+                  src="{{tokos.url_gambar}}"
+                  width="100%"
+                  height="150px"
+                />
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-list>
     </div>
   </div>
 </ion-content>

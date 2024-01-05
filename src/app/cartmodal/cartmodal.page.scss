@@ -1,17 +1,36 @@
-.container-time, .container-detail{
-    margin: 15px;
+.container-time,
+.container-detail {
+  margin: 15px;
 }
-p{
-    clear: both;
+p {
+  clear: both;
 }
 
 .border-card {
-    border: groove; /* Change the color and width according to your preference */
-    border-radius: 10px; /* Adjust the border radius as needed */
-    margin-bottom: 10px; /* Optional: Add margin for spacing between cards */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow for a subtle lift effect */
-  }
+  border: groove; /* Change the color and width according to your preference */
+  border-radius: 10px; /* Adjust the border radius as needed */
+  margin-bottom: 10px; /* Optional: Add margin for spacing between cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow for a subtle lift effect */
+}
 
-.container-detail{
-    color: grey;
+.container-detail {
+  color: grey;
+}
+
+.nProduk {
+  font-size: 23px;
+}
+
+.nToko {
+  font-size: 18px;
+}
+
+@media screen and (max-width: 500px){
+    .nProduk {
+        font-size: 19px;
+      }
+    
+      .nToko {
+        font-size: 14px;
+      }
 }

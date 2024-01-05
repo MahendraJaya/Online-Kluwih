@@ -20,6 +20,8 @@ export class HomePage{
   id_produk_fav:any[] = [];
   produk_favorite :any[] = [];
   produk_pesanan :any[] = [];
+  pesanan_pembeli:any[] = [];
+  
   coba_num = ""
   page_sekarang = "home";
   nama_pembeli = this.appC.nama_pembeli;
@@ -31,10 +33,11 @@ export class HomePage{
       this.id_produk_fav = response;
     });
     
-    this.kluservice.dataPesananpembeli(Number.parseInt(this.appC.id_pembeli)).subscribe((response) => {
+    this.kluservice.dataPesananpembeli(this.appC.id_pembeli)
+    .subscribe((response) => {
       this.produk_pesanan = response;
+      console.log(response);
     });
-
     this.cart = this.kluservice.getCart();
     this.cartItemCount = this.kluservice.getCartITemCount();
   }
@@ -74,6 +77,5 @@ export class HomePage{
 
   addToCart(ids:number) {
     this.kluservice.addProduk(this.toko[ids]);
-    
   }
 }

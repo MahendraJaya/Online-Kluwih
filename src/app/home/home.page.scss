@@ -1,8 +1,9 @@
-.container-menu, .container-home {
+.container-menu,
+.container-home {
   margin: 15px;
 }
 
-.container-home{
+.container-home {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
@@ -10,45 +11,49 @@
   justify-content: center;
 }
 
-.nama-home{
+.nama-home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.pesanan-home{
-  background-color: #F7F2FA;
+.pesanan-home {
+  background-color: #f7f2fa;
   border-radius: 10px;
   width: 80%;
-  height: 200px;
+  height: 160px;
   clear: both;
   text-align: left;
-  font-size: 1.625rem;
+  font-size: 1rem;
   color: black;
 }
 
-.pesanan-home button{
-  background-color: #E8DEF8;
+.pesanan-home button {
+  background-color: #e8def8;
   width: 100%;
   height: 70px;
   border-radius: 35px;
   text-align: left;
 }
 
-.btn-kluwih{
+.btn-kluwih {
   color: black;
   float: left;
   margin-left: 2em;
   font-size: 15px;
 }
 
-.btn-kluwih-toko{
+.btn-kluwih-toko {
   color: black;
   margin-right: 5vh;
   float: right;
   font-size: 15px;
 }
 
-
-.pesanan-home-content{
+.pesanan-home-content {
   margin: 30px;
 }
 
@@ -82,4 +87,61 @@ ion-fab-button {
   border-radius: 10px; /* Adjust the border radius as needed */
   margin-bottom: 10px; /* Optional: Add margin for spacing between cards */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow for a subtle lift effect */
+}
+
+.produk-home {
+  text-align: center;
+}
+
+.nProduk {
+  font-size: 23px;
+}
+
+.nToko {
+  font-size: 18px;
+}
+
+@media screen and (max-width: 500px) {
+  .btn-kluwih {
+    color: black;
+    float: left;
+    margin-left: 5px;
+    font-size: 14px;
+  }
+
+  .btn-kluwih-toko {
+    color: black;
+    margin-right: 20px;
+    float: right;
+    font-size: 14px;
+  }
+
+  .pesanan-home button {
+    background-color: #e8def8;
+    width: 100%;
+    height: 60px;
+    border-radius: 35px;
+    text-align: left;
+  }
+
+  .pesanan-home {
+    height: 140px;
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .nProduk {
+    font-size: 19px;
+  }
+
+  .nToko {
+    font-size: 14px;
+  }
+
+  ion-fab-button {
+    height: 5vh;
+    width: 300px;
+    
+  }
 }

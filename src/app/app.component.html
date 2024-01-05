@@ -1,8 +1,29 @@
 <ion-app>
-  <ion-router-outlet id="main-content" *ngIf="nama_pembeli"></ion-router-outlet>
+  <ion-router-outlet
+    id="main-content"
+    *ngIf="!nama_pembeli"
+  ></ion-router-outlet>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home">
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-label>Beranda</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="home">
+        <ion-icon name="fast-food-outline"></ion-icon>
+        <ion-label>Menu</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="user">
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-label>User</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
   <div class="container" *ngIf="!nama_pembeli && isLogin == 'login'">
     <ion-list>
       <div class="content-top">
+        <p><img src="assets/bg-login.png" alt=""></p>
         <p><span class="top-txt">Selamat Datang!</span></p>
         <p><span class="bot-txt">Pesan Makanan di Kantin dari Kelas!</span></p>
       </div>
@@ -46,6 +67,7 @@
   <div class="container-register" *ngIf="isLogin == 'register'">
     <ion-list>
       <div class="content-top">
+        <p><img src="assets/bg-register.png" alt=""></p>
         <p><span class="top-txt">Registrasi Rinjani</span></p>
         <p><span class="bot-txt">Pesan Makanan di Kantin dari Kelas!</span></p>
       </div>

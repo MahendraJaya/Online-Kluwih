@@ -11,11 +11,13 @@ export class AppComponent {
     this.username_pembeli = localStorage.getItem('app_username_pembeli') ?? '';
     this.nama_pembeli = localStorage.getItem('app_nama_pembeli') ?? '';
     this.id_pembeli = localStorage.getItem('app_id_pembeli') ?? '';
+    this.gambar_pembeli = localStorage.getItem('app_gambar_pembeli') ?? '';
   }
   id_pembeli = "";
   nama_pembeli = "";
   username_pembeli = "";
   password_pembeli = "";
+  gambar_pembeli = "";
   isLogin = "login";
 
   new_username = ""
@@ -32,10 +34,12 @@ export class AppComponent {
           this.id_pembeli = response[0].data[0].id;
           this.nama_pembeli = response[0].data[0].nama;
           this.username_pembeli = response[0].data[0].username;
+          this.gambar_pembeli = response[0].data[0].url_gambar;
 
           localStorage.setItem('app_username_pembeli', this.username_pembeli); 
           localStorage.setItem('app_nama_pembeli', this.nama_pembeli);
-          localStorage.setItem('app_id_pembeli', this.id_pembeli);
+          localStorage.setItem('app_nama_pembeli', this.nama_pembeli);
+          localStorage.setItem('app_gambar_pembeli', this.id_pembeli);
         } else {
           alert(response[0].data);
         }

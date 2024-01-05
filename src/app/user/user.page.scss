@@ -1,0 +1,25 @@
+.content {
+  display: flex;
+  text-align: center;
+  height: 100%;
+  justify-content: center;
+  z-index: -1;
+  align-items: center;
+}
+
+.inside-content {
+  display: block;
+  justify-content: initial;
+  align-items: initial;
+  width: 70%;
+}
+
+.mb-10 {
+  margin-bottom: 14px;
+}
+
+@media screen and (max-width: 500px) {
+  .inside-content {
+    width: 70%;
+  }
+}

@@ -1,8 +1,16 @@
+body{
+    margin: 0px;
+    padding: 10px;
+}
 .container, .container-register{
     margin: 20px;
     height: auto;
     text-align: center;
     color: black;
+}
+
+.container{
+    height: 100vh;
 }
 
 .content-pembeli{
@@ -21,4 +29,7 @@
     
     font-size: 13px;
     
+}
+ion-list{
+    height: 100vh;
 }

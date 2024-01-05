@@ -31,6 +31,10 @@ const routes: Routes = [
     path: 'opsimodal',
     loadChildren: () => import('./opsimodal/opsimodal.module').then( m => m.OpsimodalPageModule)
   },
+  {
+    path: 'user',
+    loadChildren: () => import('./user/user.module').then( m => m.UserPageModule)
+  },
 ];
 
 @NgModule({
